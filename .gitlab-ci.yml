@@ -1,0 +1,19 @@
+image: node:18
+
+stages:
+  - test
+
+cache:
+  paths:
+    - node_modules/
+    - .playwright/
+
+test:
+  stage: test
+  script:
+    - npm install
+    - npx playwright install
+    - npx playwright test
+  artifacts:
+    paths:
+      - test-results
